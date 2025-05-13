@@ -42,7 +42,7 @@ python app.py
 El backend está disponible en:
 http://localhost:5000/graphql
 
-##🎯 Funcionalidad del Backend
+🎯 Funcionalidad del Backend
 📌 Datos en memoria
 Los productos se almacenan en una lista de Python al iniciar el servidor, con campos:
 
