@@ -26,24 +26,25 @@ Este proyecto implementa el backend de una tienda online con **Flask** y **Graph
 1. Clona el proyecto y accede al directorio `backend`:
 cd backend/
 
-2.Crea un entorno virtual (opcional):
+2. Crea un entorno virtual (opcional):
 
 python3 -m venv venv
 source venv/bin/activate  # En Windows: venv\Scripts\activate
 
-3.Instala las dependencias:
+3. Instala las dependencias:
 
 pip install -r requirements.txt
 
-4.Ejecuta el servidor:
+4. Ejecuta el servidor:
 
 python app.py
 
 El backend está disponible en:
 http://localhost:5000/graphql
 
-🎯 Funcionalidad del Backend
-📌 Datos en memoria
+## 🎯 Funcionalidad del Backend
+
+### 📌 Datos en memoria
 Los productos se almacenan en una lista de Python al iniciar el servidor, con campos:
 
 id (int)
@@ -56,7 +57,7 @@ stock (int)
 
 disponible (bool) → se actualiza automáticamente según el stock.
 
-🔍 Query GraphQL
+### 🔍 Query GraphQL
 query {
   productos {
     id
@@ -67,7 +68,7 @@ query {
   }
 }
 
-✏️ Mutación GraphQL
+### ✏️ Mutación GraphQL
 mutation {
   modificarStock(id: 1, cantidad: -3) {
     id
@@ -76,7 +77,7 @@ mutation {
   }
 }
 
-🔗 Conexión con el Frontend Vue
+### 🔗 Conexión con el Frontend Vue
 En el frontend (frontend/src/apollo.js), uri apuntando al backend:
 
 import { ApolloClient, InMemoryCache } from '@apollo/client/core'
@@ -85,6 +86,7 @@ export const apolloClient = new ApolloClient({
   uri: 'http://localhost:5000/graphql',
   cache: new InMemoryCache(),
 })
+
 En main.ts:
 import { createApp, h, provide } from 'vue'
 import App from './App.vue'
@@ -102,10 +104,10 @@ En App.vue, usa las queries y mutaciones:
 import { useQuery, useMutation } from '@vue/apollo-composable'
 import gql from 'graphql-tag'
 
-⚠️ Instala estas dependencias si no las tienes:
+### ⚠️ Instala estas dependencias si no las tienes:
 npm install @apollo/client graphql graphql-tag @vue/apollo-composable
 
-🧪 Test opcional del backend
+### 🧪 Test opcional del backend
 Puedes ejecutar el archivo test.py (si existe) para comprobar funcionalidad:
 python test.py
 
